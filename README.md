@@ -1,25 +1,30 @@
 # 🎯 Valorant Agent Selector (Ajan Seçici)
 
-> **Don't know who to play? Let fate decide!** > **Kimi oynayacağını bilmiyor musun? Bırak kader karar versin!**
+> **Don't know who to play? Let fate decide!**
+> **Kimi oynayacağını bilmiyor musun? Bırak kader karar versin!**
 
 ---
 
 ## 🔗 Live Demo / Canlı Önizleme
 
-### 👉 [Click Here to View the App / Siteye Gitmek İçin Tıkla](https://KULLANICIADIN.github.io/REPO-ISMI/)
+### 👉 [Click Here to View the App / Siteye Gitmek İçin Tıkla]([https://KULLANICIADIN.github.io/REPO-ISMI/](https://caramelmisto.github.io/ValorantAgentPicker/))
 
 ---
 
 ## ✨ Features / Özellikler
 
-This project is a lightweight web application designed to help indecisive Valorant players choose their next agent.
-Bu proje, kararsız Valorant oyuncularının bir sonraki ajanlarını seçmelerine yardımcı olmak için tasarlanmış hafif bir web uygulamasıdır.
+This project is a lightweight, responsive web application designed to help indecisive Valorant players choose their next agent.
+Bu proje, kararsız Valorant oyuncularının bir sonraki ajanlarını seçmelerine yardımcı olmak için tasarlanmış hafif ve mobil uyumlu bir web uygulamasıdır.
 
-* 🎲 **Random Agent Picker:** Selects from the current pool of Valorant agents instantly.
-* 🌍 **Bilingual Support:** Fully functional **English** and **Turkish** interface.
+* 🧠 **Smart Random Logic:** Prevents the same agent from being selected twice in a row for a better user experience.
+  * *(Akıllı Rastgele Mantığı: Kullanıcı deneyimi için aynı ajanın arka arkaya seçilmesini engeller.)*
+* 📋 **Complete Roster:** Includes all current agents plus **Waylay, Veto, and Tejo**.
+  * *(Tam Kadro: Mevcut tüm ajanlar artı Waylay, Veto ve Tejo dahildir.)*
+* 📱 **Fully Responsive:** Optimized interface that looks great on both **Mobile** and Desktop.
+  * *(Tam Mobil Uyum: Hem telefonda hem masaüstünde harika görünen optimize edilmiş arayüz.)*
+* 🌍 **Bilingual Support:** Starts in **English** by default, with an instant toggle for **Turkish**.
+  * *(İki Dil Desteği: Varsayılan olarak İngilizce açılır, tek tuşla Türkçeye geçer.)*
 * 🎨 **Themed UI:** Designed with Valorant's official aesthetic (Red, Dark Blue, White).
-* 📱 **Responsive:** Works great on both desktop and mobile devices.
-* ⚡ **Fast & Pure:** Built with pure JavaScript, no heavy frameworks needed.
 
 ---
 
@@ -33,10 +38,10 @@ Bu proje, kararsız Valorant oyuncularının bir sonraki ajanlarını seçmeleri
 
 ## 📸 Screenshots / Ekran Görüntüleri
 
-| Start Screen (Başlangıç) | Agent Selected (Seçim Ekranı) |
+| Desktop View (Masaüstü) | Mobile View (Mobil) |
 |:---:|:---:|
-| ![Start Screen](<img width="1919" height="921" alt="image" src="https://github.com/user-attachments/assets/97cb1ce1-c8f4-4d9b-8977-1457cf180b16" />
-) | 
+| ![Desktop](<img width="1919" height="921" alt="image" src="https://github.com/user-attachments/assets/827522a6-fba7-417b-a6cc-b18bdbcd59b9" />
+) | ![Mobile](BURAYA_MOBIL_EKRAN_GORUNTUSU_LINKI) |
 
 ---
 
@@ -57,8 +62,8 @@ Projeyi kendi bilgisayarında çalıştırmak istersen:
 ## 👨‍💻 Author / Yapımcı
 
 **Senin Adın**
-* GitHub: [@KullaniciAdin](https://github.com/KullaniciAdin)
-* LinkedIn: [Adın Soyadın](https://linkedin.com/in/profilin)
+* GitHub: [@KullaniciAdin](https://github.com/CaramelMisto)
+* LinkedIn: [Adın Soyadın](https://linkedin.com/in/AHMETCAN-SELEK)
 
 ---
 
