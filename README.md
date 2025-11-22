@@ -62,8 +62,8 @@ Projeyi kendi bilgisayarında çalıştırmak istersen:
 ## 👨‍💻 Author / Yapımcı
 
 **Senin Adın**
-* GitHub: [@KullaniciAdin](https://github.com/CaramelMisto)
-* LinkedIn: [Adın Soyadın](https://linkedin.com/in/AHMETCAN-SELEK)
+* GitHub: [@CaramelMisto](https://github.com/CaramelMisto)
+* LinkedIn: [Ahmetcan Selek](https://linkedin.com/in/AHMETCAN-SELEK)
 
 ---
 
