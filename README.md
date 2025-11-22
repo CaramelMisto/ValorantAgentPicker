@@ -7,7 +7,7 @@
 
 ## 🔗 Live Demo / Canlı Önizleme
 
-### 👉 [Click Here to View the App / Siteye Gitmek İçin Tıkla]([https://KULLANICIADIN.github.io/REPO-ISMI/](https://caramelmisto.github.io/ValorantAgentPicker/))
+### 👉 [Click Here to View the App / Siteye Gitmek İçin Tıkla](https://caramelmisto.github.io/ValorantAgentPicker/))
 
 ---
 
