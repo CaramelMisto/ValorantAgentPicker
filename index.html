@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="32XC51TbNgbrKSjUPBgsAb_fqpkDBPgRIwy_VCikIsI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta name="google-site-verification" content="SENIN_GOOGLE_KODUN" />
+
     <title>Valorant Agent Selector</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
     <style>
         body {
             background-color: #0f1923;
             color: white;
             font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column; /* Footer için dikey hizalama */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             text-align: center;
-            padding: 20px;
+            padding: 15px; /* Mobilde kenarlardan boşluk */
             position: relative;
             box-sizing: border-box;
         }
         
-        /* Dil Butonu Stili */
+        /* Dil Butonu */
         .lang-btn {
             position: absolute;
             top: 20px;
@@ -31,61 +34,78 @@
             background-color: transparent;
             border: 2px solid #ff4655;
             color: white;
-            padding: 8px 16px;
+            padding: 8px 15px;
             cursor: pointer;
             font-weight: bold;
             border-radius: 5px;
             transition: 0.3s;
             z-index: 10;
+            font-size: 14px;
         }
         .lang-btn:hover {
             background-color: #ff4655;
         }
 
+        /* Ana Kutu - Mobilde %90 genişlik, Masaüstünde max 500px */
         .container {
             background-color: #ece8e1;
             color: #0f1923;
-            padding: 40px;
+            padding: 30px 20px;
             border-radius: 10px;
-            box-shadow: 0 0 30px #ff4655;
+            box-shadow: 0 0 25px #ff4655;
+            width: 90%; 
             max-width: 500px;
-            width: 100%;
             position: relative;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
             text-transform: uppercase;
-            font-size: 22px;
-            margin-bottom: 25px;
+            font-size: 20px; /* Mobilde çok büyük olmasın diye küçülttük */
+            margin-bottom: 20px;
             line-height: 1.4;
             color: #0f1923;
+            width: 100%;
         }
+        
+        /* Masaüstü ekranlarda başlığı biraz büyütelim */
+        @media (min-width: 768px) {
+            h1 { font-size: 24px; }
+            .container { padding: 40px; }
+        }
+
         .highlight {
             color: #ff4655;
             font-weight: bold;
         }
         
         .agent-display-area {
-            min-height: 300px;
+            min-height: 280px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .agent-name {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
             color: #ff4655;
             margin-bottom: 15px;
             text-transform: uppercase;
+            word-wrap: break-word; /* Uzun isimler mobilde taşmasın */
         }
         
+        /* Resimlerin Mobil Uyumu */
         .agent-image {
-            width: 250px;
-            height: auto;
+            width: 100%;
+            max-width: 250px; /* Resim en fazla 250px olsun */
+            height: auto;     /* Orantılı küçülsün */
             border-radius: 10px;
             border: 3px solid #ff4655;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -93,7 +113,7 @@
         }
         
         .placeholder-text {
-            font-size: 80px;
+            font-size: 60px;
             color: #ccc;
         }
 
@@ -101,13 +121,16 @@
             background-color: #ff4655;
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 20px;
+            padding: 15px 30px;
+            width: 100%;      /* Mobilde buton tam genişlik olsun */
+            max-width: 300px; /* Masaüstünde çok uzamasın */
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             text-transform: uppercase;
             transition: 0.3s;
             border-radius: 5px;
+            touch-action: manipulation; /* Mobilde dokunmayı iyileştirir */
         }
         button.roll-btn:hover {
             background-color: #0f1923;
@@ -115,22 +138,17 @@
             box-shadow: inset 0 0 0 3px #ff4655;
         }
         
-        /* FOOTER STİLİ */
         footer {
-            margin-top: 40px;
+            margin-top: 30px;
             color: #8b978f;
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 1px;
+            padding-bottom: 10px;
         }
         footer a {
             color: #ff4655;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
-        }
-        footer a:hover {
-            color: white;
-            text-shadow: 0 0 5px #ff4655;
         }
 
         @keyframes fadeIn {
@@ -141,16 +159,16 @@
 </head>
 <body>
 
-    <button onclick="toggleLanguage()" class="lang-btn" id="langBtn">EN</button>
+    <button onclick="toggleLanguage()" class="lang-btn" id="langBtn">TR</button>
 
     <div class="container">
-        <h1 id="mainTitle">Hangi ajanı oynamak istediğini bilmiyor musun? <br> <span class="highlight">O zaman ajanını seç!</span></h1>
+        <h1 id="mainTitle">Don't know which agent to play? <br> <span class="highlight">Pick your agent now!</span></h1>
 
         <div class="agent-display-area" id="displayArea">
             <div class="placeholder-text">?</div>
         </div>
 
-        <button onclick="rollDice()" class="roll-btn" id="rollBtn">AJANINI SEÇ</button>
+        <button onclick="rollDice()" class="roll-btn" id="rollBtn">PICK AGENT</button>
     </div>
 
     <footer>
@@ -158,15 +176,18 @@
     </footer>
 
     <script>
+        // GÜNCEL TAM AJAN LİSTESİ
         const agents = [
             "Brimstone", "Viper", "Omen", "Killjoy", "Sage", "Cypher",
-    "Reyna", "Jett", "Phoenix", "Raze", "Breach", "Sova",
-    "Astra", "KAY/O", "Yoru", "Skye", "Gekko", "Chamber",
-    "Neon", "Fade", "Harbor", "Deadlock", "Vyse", "Iso",
-    "Waylay", "Clove", "Veto", "Tejo"
+            "Reyna", "Jett", "Phoenix", "Raze", "Breach", "Sova",
+            "Astra", "KAY/O", "Yoru", "Skye", "Gekko", "Chamber",
+            "Neon", "Fade", "Harbor", "Deadlock", "Vyse", "Iso",
+            "Waylay", "Clove", "Veto", "Tejo"
         ];
 
-        let currentLang = 'tr';
+        // Varsayılan dil İngilizce (en)
+        let currentLang = 'en';
+        
         const translations = {
             tr: {
                 title: 'Hangi ajanı oynamak istediğini bilmiyor musun? <br> <span class="highlight">O zaman ajanını seç!</span>',
@@ -180,12 +201,22 @@
             }
         };
 
+        // Aynı ajanın üst üste gelmesini engellemek için hafıza
+        let lastSelectedIndex = -1; 
+
         function getSafeFilename(name) {
             return name.toLowerCase().replace("/", "").replace(" ", "");
         }
 
         function rollDice() {
-            const randomIndex = Math.floor(Math.random() * agents.length);
+            let randomIndex;
+
+            // Tekrar kontrolü: Bir öncekiyle aynıysa tekrar zar at
+            do {
+                randomIndex = Math.floor(Math.random() * agents.length);
+            } while (randomIndex === lastSelectedIndex);
+
+            lastSelectedIndex = randomIndex;
             const selectedAgent = agents[randomIndex];
             const filename = getSafeFilename(selectedAgent);
             
