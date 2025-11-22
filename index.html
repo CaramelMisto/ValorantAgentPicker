@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Agent Selector</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        body {
+            background-color: #0f1923;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Footer için dikey hizalama */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        
+        /* Dil Butonu Stili */
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: 2px solid #ff4655;
+            color: white;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            z-index: 10;
+        }
+        .lang-btn:hover {
+            background-color: #ff4655;
+        }
+
+        .container {
+            background-color: #ece8e1;
+            color: #0f1923;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px #ff4655;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-size: 22px;
+            margin-bottom: 25px;
+            line-height: 1.4;
+            color: #0f1923;
+        }
+        .highlight {
+            color: #ff4655;
+            font-weight: bold;
+        }
+        
+        .agent-display-area {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .agent-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff4655;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .agent-image {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #ff4655;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .placeholder-text {
+            font-size: 80px;
+            color: #ccc;
+        }
+
+        button.roll-btn {
+            background-color: #ff4655;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        button.roll-btn:hover {
+            background-color: #0f1923;
+            color: #ff4655;
+            box-shadow: inset 0 0 0 3px #ff4655;
+        }
+        
+        /* FOOTER STİLİ */
+        footer {
+            margin-top: 40px;
+            color: #8b978f;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        footer a {
+            color: #ff4655;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        footer a:hover {
+            color: white;
+            text-shadow: 0 0 5px #ff4655;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="toggleLanguage()" class="lang-btn" id="langBtn">EN</button>
+
+    <div class="container">
+        <h1 id="mainTitle">Hangi ajanı oynamak istediğini bilmiyor musun? <br> <span class="highlight">O zaman ajanını seç!</span></h1>
+
+        <div class="agent-display-area" id="displayArea">
+            <div class="placeholder-text">?</div>
+        </div>
+
+        <button onclick="rollDice()" class="roll-btn" id="rollBtn">AJANINI SEÇ</button>
+    </div>
+
+    <footer>
+        Developed by <a href="https://github.com/CaramelMisto" target="_blank">CaramelMisto</a>
+    </footer>
+
+    <script>
+        const agents = [
+            "Brimstone", "Viper", "Omen", "Killjoy", "Sage", "Cypher",
+            "Reyna", "Jett", "Phoenix", "Raze", "Breach", "Sova",
+            "Astra", "KAY/O", "Yoru", "Skye", "Gekko", "Chamber",
+            "Neon", "Fade", "Harbor", "Deadlock", "Vyse", "Iso", "Clove"
+        ];
+
+        let currentLang = 'tr';
+        const translations = {
+            tr: {
+                title: 'Hangi ajanı oynamak istediğini bilmiyor musun? <br> <span class="highlight">O zaman ajanını seç!</span>',
+                btn: 'AJANINI SEÇ',
+                langBtn: 'EN'
+            },
+            en: {
+                title: 'Don\'t know which agent to play? <br> <span class="highlight">Pick your agent now!</span>',
+                btn: 'PICK AGENT',
+                langBtn: 'TR'
+            }
+        };
+
+        function getSafeFilename(name) {
+            return name.toLowerCase().replace("/", "").replace(" ", "");
+        }
+
+        function rollDice() {
+            const randomIndex = Math.floor(Math.random() * agents.length);
+            const selectedAgent = agents[randomIndex];
+            const filename = getSafeFilename(selectedAgent);
+            
+            const displayArea = document.getElementById('displayArea');
+            
+            displayArea.innerHTML = `
+                <div class="agent-name">${selectedAgent}</div>
+                <img src="images/${filename}.png" alt="${selectedAgent}" class="agent-image">
+            `;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            document.documentElement.lang = currentLang;
+            
+            document.getElementById('mainTitle').innerHTML = translations[currentLang].title;
+            document.getElementById('rollBtn').innerText = translations[currentLang].btn;
+            document.getElementById('langBtn').innerText = translations[currentLang].langBtn;
+        }
+    </script>
+
+</body>
+</html>
